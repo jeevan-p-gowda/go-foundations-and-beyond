@@ -10,7 +10,9 @@ func main() {
 	// uint shall be used only for +ve integer, int shall be used for both -ve and +ve integer
 	// use the byte size wisely like int8, uint32
 	var remainingTickets uint = 50
-	var bookings [50]string
+
+	//slices are abstraction of array, which adds dynamic attribute
+	var bookings []string //alt: var bookings = []string{} or bookings := []string{}
 
 	fmt.Printf("conference name is %T, conference tickets is %T, remaining tickets is %T\n", conferenceName, conferenceTickets, remainingTickets)
 
@@ -36,14 +38,12 @@ func main() {
 	fmt.Println("Enter no. of tickets: ")
 	fmt.Scan(&userTickets)
 
-	bookings[0] = firstName + " " + lastName
-	fmt.Printf("The whole array: %v\n", bookings)
-	fmt.Printf("The first value: %v\n", bookings[0])
-	fmt.Printf("Array type: %T\n", bookings)
-	fmt.Printf("Array length: %v\n", len(bookings))
+	bookings = append(bookings, firstName+" "+lastName)
 
 	remainingTickets = remainingTickets - userTickets
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+
+	fmt.Printf("These are all our bookings: %v\n", bookings)
 }
