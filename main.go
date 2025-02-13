@@ -17,11 +17,26 @@ func main() {
 	fmt.Printf("We have total of %v tickets and %v are still valid\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets to attend")
 
-	var userName string
-	var userTickets int
+	var firstName string
+	var lastName string
+	var email string
+	var userTickets uint
 
-	userName = "Tom"
-	userTickets = 2
+	fmt.Println("Enter your first name: ")
+	//& is a pointer, pointer is address which has the address of another varaible
+	fmt.Scan(&firstName)
 
-	fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
+	fmt.Println("Enter your last name: ")
+	fmt.Scan(&lastName)
+
+	fmt.Println("Enter your email: ")
+	fmt.Scan(&email)
+
+	fmt.Println("Enter no. of tickets: ")
+	fmt.Scan(&userTickets)
+
+	remainingTickets = remainingTickets - userTickets
+
+	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
